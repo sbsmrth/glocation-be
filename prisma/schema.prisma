@@ -14,7 +14,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 enum EstadoProyecto {
   EN_PROGRESO
   FINALIZADO
@@ -24,12 +23,12 @@ enum EstadoProyecto {
 }
 
 model Proyecto {
-  id         String @id @default(uuid())
-  nombre      String
-  descripcion String?
-  estado     EstadoProyecto @default(SIN_INICIAR)
-  fechgaInicio  DateTime?
-  fechaFin     DateTime?
-  fechaCreation    DateTime @default(now())
-  fechaActualizacion DateTime @updatedAt
+  id                 String         @id @default(uuid())
+  nombre             String         @unique
+  descripcion        String?
+  estado             EstadoProyecto @default(SIN_INICIAR)
+  fechaInicio       DateTime?
+  fechaFin           DateTime?
+  fechaCreation      DateTime       @default(now())
+  fechaActualizacion DateTime       @updatedAt
 }
