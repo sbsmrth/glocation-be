@@ -1,0 +1,13 @@
+services:
+  glocation-db:
+    container_name: glocation-db
+    image: postgres:17.5-alpine3.22
+    restart: always
+    volumes:
+      - ./glocation-db-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=${GLOCATION_DB_USER}
+      - POSTGRES_PASSWORD=${GLOCATION_DB_PASSWORD}
+      - POSTGRES_DB=${GLOCATION_DB_NAME}
