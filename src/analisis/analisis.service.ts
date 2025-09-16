@@ -54,8 +54,6 @@ export class AnalisisService {
       },
     });
 
-    console.log('response: ', response);
-
     if (isUnexpected(response)) {
       throw new InternalServerErrorException(
         'Ocurrió un error al obtener la respuesta',
