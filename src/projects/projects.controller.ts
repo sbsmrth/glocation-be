@@ -14,7 +14,7 @@ import { CreateProjectDto } from './dto/create-project.dto';
 import { UpdateProjectDto } from './dto/update-project.dto';
 import { PaginationDto } from 'src/common/dtos/pagination.dto';
 
-@Controller('projects')
+@Controller('proyectos')
 export class ProjectsController {
   constructor(private readonly projectsService: ProjectsService) {}
 
@@ -26,6 +26,11 @@ export class ProjectsController {
   @Get()
   findAll(@Query() paginationDto: PaginationDto) {
     return this.projectsService.findAll(paginationDto);
+  }
+
+  @Get('agregados')
+  getProjectsAggregates() {
+    return this.projectsService.getProjectsAggregates();
   }
 
   @Get(':term')
